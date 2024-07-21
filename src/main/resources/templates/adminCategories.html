@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body, html {
+            height: 100%;
+        }
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .categories-container {
+            max-width: 400px;
+            width: 100%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+        .categories-container a {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .categories-container form {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="categories-container">
+        <a href="/viewUsers" class="btn btn-primary btn-block">View Users</a>
+        <a href="/viewProducts" class="btn btn-primary btn-block">View Products</a>
+        <a href="/viewOrders" class="btn btn-primary btn-block">View Orders</a>
+        <a href="/addProduct" class="btn btn-primary btn-block">Add Product</a>
+        <a href="/updateProduct" class="btn btn-primary btn-block">Update Product</a>
+        <form action="/logout" method="get">
+            <button type="submit" class="btn btn-danger btn-block">Logout</button>
+        </form>
+    </div>
+
+    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

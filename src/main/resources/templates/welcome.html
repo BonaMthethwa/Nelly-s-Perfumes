@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+       .jumbotron {
+             background-color: #1eb7f4c7; 
+            color: #ffffff;
+       }
+
+       .container-fluid{
+            color: #1eb7f4c7;
+       }
+    </style>
+</head>
+<body >
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" th:href="@{/home}">Nelly's Fragrances</a>
+          </div>
+          
+          <ul class="nav navbar-nav navbar-right">
+            <li><a th:href="@{/welcomeAdmin}"><span class="glyphicon glyphicon-user"></span> Admin</a></li>
+            <li><a th:href="@{/register}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a th:href="@{/login}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          </ul>
+        </div>
+      </nav>
+        
+      <div class="jumbotron text-center">
+        <h1>Nelly's Fragrances</h1>
+        <p>Creating One Scent At A Time...</p>
+      </div>
+
+      <div class="container-fluid text-center">
+        
+            <h2>About</h2>
+            
+            <p>
+                Welcome to Nelly's Fragrances, where luxury meets scent in every bottle. 
+                Founded on the belief that fragrance is an art form, we strive to evoke emotions, memories, and dreams with each carefully crafted blend.
+                Our journey began with a passion for exquisite aromas and a commitment to sourcing the finest ingredients from around the globe.
+                From our signature collections inspired by nature's beauty to our exclusive collaborations with renowned perfumers, we aim to enchant and captivate the senses of discerning fragrance enthusiasts worldwide.
+                With a dedication to quality, creativity, and sustainability, Nelly's Fragrances invites you to experience the essence of elegance and sophistication, one spritz at a time.
+            </p>
+           
+          </div>
+</body>
+</html>

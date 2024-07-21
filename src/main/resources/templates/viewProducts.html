@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Products</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <h2>View Products</h2>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                
+                <th>Product Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="product : ${products}">
+                
+                <td th:text="${product.productName}"></td>
+                <td th:text="${product.description}"></td>
+                <td th:text="${product.price}"></td>
+                <td>
+                    <img th:src="@{'/images/' + ${product.image}}" class="img-thumbnail" style="max-width: 100px; max-height: 100px;">
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <form action="#" th:action="@{/deleteProduct}" method="post">
+        <label for="productName">Product Name to Delete:</label>
+        <input type="text" id="productName" name="productName" required><br>
+        <button type="submit">Delete Product</button>
+    </form>
+    
+    <a href="/adminCategories">Back to Categories</a>
+</body>
+</html>

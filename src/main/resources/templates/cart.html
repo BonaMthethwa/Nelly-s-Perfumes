@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h2>Shopping Cart</h2>
+        <div th:if="${not #lists.isEmpty(cartItems)}">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="item : ${cartItems}">
+                        <td><img th:src="@{'/images/' + ${item.image}}" alt="Product Image" style="max-width: 100px;"></td>
+                        <td th:text="${item.productName}"></td>
+                        <td th:text="${item.price}"></td>
+                        <td th:text="${item.quantity}"></td>
+                        <td><span th:text="${item.price * item.quantity}"></span></td>
+                        <td>
+                            <form th:action="@{/cart/removeItem}" method="post">
+                                <input type="hidden" name="cartId" th:value="${cartId}">
+                                <input type="hidden" name="itemId" th:value="${item.id}" />
+                                <button type="submit" class="btn btn-danger">Remove</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <a href="/checkout" class="btn btn-primary">Proceed to Checkout</a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

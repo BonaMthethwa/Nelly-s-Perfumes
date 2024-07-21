@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ladies</title>
+    
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h2>Mens Perfumes Available</h2>
+        <div th:if="${not #lists.isEmpty(products)}">
+            <div class="row">
+                <a th:href="@{/cart}" class="btn btn-success">View Cart</a>
+                <div th:each="product : ${products}" class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <img th:src="@{'/images/' + ${product.image}}" alt="Product Image" class="card-img-top" style="max-width: 200px;">
+                        <div class="card-body">
+                            <h3 class="card-title" th:text="${product.productName}"></h3>
+                            <p class="card-text" th:text="${product.description}"></p>
+                            <p class="card-text" th:text="'Price: ' + ${product.price}"></p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                   
+                                <form th:action="@{/addToCart}" method="post">
+                                    <input type="hidden" name="cartId" th:value="${cartId}" />
+                                    <input type="hidden" name="productId" th:value="${product.id}" />
+                                    <input type="hidden" name="productPrice" th:value="${product.price}" />
+                                    <input type="hidden" name="productImage" th:value="${product.image}" />
+                                    <input type="number" name="quantity" value="1" min="1" max="10" />
+                                    <button type="submit">Add to Cart</button>
+                                </form>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div th:if="${#lists.isEmpty(products)}">
+            <p>No products available.</p>
+        </div>
+    </div>
+
+    
+    
+    
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

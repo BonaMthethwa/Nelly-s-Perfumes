@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Proof Of Payment</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <h5>Please use your Name and Surname as reference.</h5>
+<form th:action="@{/uploadProofOfPayment}" method="post">
+    <a aria-label="Chat on WhatsApp" href="https://wa.me/27743346398"> 
+        <img alt="Chat on WhatsApp" src="/images/WhatsAppButtonGreenLarge.png" />
+    </a>
+
+    <button type="submit">Place Order</button>
+</form>
+    <form th:action="@{/checkout}" method="get">
+        <button type="submit">Go back to checkout</button>
+    </form>
+</body>
+</html>

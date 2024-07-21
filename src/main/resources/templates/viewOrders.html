@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Orders</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <h2>View Orders</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                
+                <th>Order ID</th>
+                <th>Date</th>
+                <th>Order Status</th>
+                
+                <th>Total Paid</th>
+                <th>Perfume Name</th>
+                <th>Quantity</th>
+                
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr th:each="order : ${orders}">
+                
+                <td th:text="${order.orderId}"></td>
+                <td th:text="${order.createdDate}"></td>
+                <td th:text="${order.orderStatus}"></td>
+
+                <td th:text="${order.total}"></td>
+                <td>
+                  <ul>
+                    <li th:each="item : ${order.cart.items}" th:text="${item.productName}"></li>
+                  </ul> 
+                </td>
+                <td>
+                    <ul>
+                        <li th:each="item : ${order.cart.items}" th:text="${item.quantity}"></li>
+                    </ul>
+                </td>
+
+                <td></td>
+                
+            </tr>
+                
+                
+                
+                
+        </tbody>
+    </table>
+</body>
+</html>
